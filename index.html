@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LactoSync - Modern Dairy Farm Management Solution</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Floating Elements Background -->
+    <div class="floating-elements">
+        <div class="float-element milk-drop"></div>
+        <div class="float-element milk-drop"></div>
+        <div class="float-element milk-drop"></div>
+        <div class="float-element cow-icon"></div>
+        <div class="float-element cow-icon"></div>
+    </div>
+
+    <!-- Cursor Follower -->
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">Lacto Sync</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact" class="btn-nav">Get Started</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Transform Your Dairy</span>
+                        <br>Management Forever
+                    </h1>
+                    <p class="hero-description">
+                        Eliminate the chaos of managing customers, suppliers, workers, and daily bookkeeping. LactoSync
+                        streamlines your entire dairy operations—from automated billing and milk tracking to optimized
+                        delivery routes—freeing up valuable time in your routine to focus on growth and enhancing your
+                        lifestyle.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="95" data-suffix="%">95%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+                            <div class="stat-label">Accuracy</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1" data-prefix="₹" data-start="9.89"
+                                data-decimal="true">₹1</div>
+                            <div class="stat-label">Per Customer/Day</div>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
+                        <a href="#features" class="btn btn-secondary">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Crect fill='%234F46E5' width='400' height='600'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3ELactoSync App%3C/text%3E%3C/svg%3E"
+                                alt="LactoSync Mobile App">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Challenge</span>
+                <h2>Tired of Endless Manual Work?</h2>
+                <p>Traditional dairy management is time-consuming, error-prone, and exhausting</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>2+ Hours Daily</h3>
+                    <p>Wasted on manual billing, record-keeping, and paperwork</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📝</div>
+                    <h3>Billing Errors</h3>
+                    <p>Manual calculations lead to mistakes and customer disputes</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📞</div>
+                    <h3>Poor Communication</h3>
+                    <p>Difficult to track payments and send reminders</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>No Insights</h3>
+                    <p>Can't analyze business performance or make data-driven decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2>Everything You Need to Run Your Dairy</h2>
+                <p>Comprehensive solution covering every aspect of dairy farm management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Customer Management</h3>
+                    <p>Complete customer profiles with subscription history, payment records, and vacation tracking</p>
+                    <ul class="feature-list">
+                        <li>Digital customer database</li>
+                        <li>Subscription management</li>
+                        <li>Vacation requests</li>
+                        <li>Customer portal access</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Smart Delivery Routes</h3>
+                    <p>Optimize delivery routes, track real-time deliveries, and manage your delivery boys efficiently
+                    </p>
+                    <ul class="feature-list">
+                        <li>Route optimization</li>
+                        <li>Real-time tracking</li>
+                        <li>Delivery boy mobile app</li>
+                        <li>Adhoc order management</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Automated Billing</h3>
+                    <p>Generate accurate monthly bills in seconds with automatic payment reminders via WhatsApp</p>
+                    <ul class="feature-list">
+                        <li>Auto-generate bills</li>
+                        <li>WhatsApp reminders</li>
+                        <li>Multiple payment modes</li>
+                        <li>Credit tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🐄</div>
+                    <h3>Milk Production Tracking</h3>
+                    <p>Track daily milk production, animal health, breeding records, and milk quality</p>
+                    <ul class="feature-list">
+                        <li>Daily milking logs</li>
+                        <li>Animal health records</li>
+                        <li>Breeding management</li>
+                        <li>Quality tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Business Analytics</h3>
+                    <p>Real-time dashboards with insights on revenue, expenses, and profitability</p>
+                    <ul class="feature-list">
+                        <li>Revenue reports</li>
+                        <li>Expense tracking</li>
+                        <li>Profit/loss analysis</li>
+                        <li>Customer insights</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧑‍💼</div>
+                    <h3>Employee Management</h3>
+                    <p>Manage staff, track attendance, calculate salaries, and monitor performance</p>
+                    <ul class="feature-list">
+                        <li>Role-based access</li>
+                        <li>Salary calculation</li>
+                        <li>Commission tracking</li>
+                        <li>Performance metrics</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Notifications</h3>
+                    <p>Automated WhatsApp and SMS notifications for payments, deliveries, and alerts</p>
+                    <ul class="feature-list">
+                        <li>Payment reminders</li>
+                        <li>Delivery updates</li>
+                        <li>Low stock alerts</li>
+                        <li>Overdue notifications</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Lead Management</h3>
+                    <p>Track potential customers, manage sample deliveries, and convert leads effectively</p>
+                    <ul class="feature-list">
+                        <li>Lead tracking</li>
+                        <li>Sample delivery logs</li>
+                        <li>Conversion tracking</li>
+                        <li>Follow-up reminders</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Inventory Management</h3>
+                    <p>Track bottles, pouches, feed, medicines, and get low-stock alerts</p>
+                    <ul class="feature-list">
+                        <li>Stock tracking</li>
+                        <li>Low stock alerts</li>
+                        <li>Purchase orders</li>
+                        <li>Usage reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Can Use Section -->
+    <section class="who-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">For Everyone</span>
+                <h2>Who Can Use LactoSync?</h2>
+                <p>Perfect for dairy operations of all sizes</p>
+            </div>
+            <div class="who-grid">
+                <div class="who-card">
+                    <div class="who-icon">🏠</div>
+                    <h3>Small Dairy Farms</h3>
+                    <p>20-100 customers</p>
+                    <ul>
+                        <li>Start with free plan</li>
+                        <li>Easy setup in minutes</li>
+                        <li>Perfect for family businesses</li>
+                    </ul>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏢</div>
+                    <h3>Medium Dairy Farms</h3>
+                    <p>100-500 customers</p>
+                    <ul>
+                        <li>Advanced features</li>
+                        <li>Multiple delivery boys</li>
+                        <li>Comprehensive analytics</li>
+                    </ul>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏭</div>
+                    <h3>Large Dairy Cooperatives</h3>
+                    <p>500+ customers</p>
+                    <ul>
+                        <li>Enterprise features</li>
+                        <li>Dedicated support</li>
+                        <li>Custom integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Benefits</span>
+                <h2>Why Choose LactoSync?</h2>
+                <p>Real results that transform your business</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-number">01</div>
+                    <h3>Save 95% Time on Admin Work</h3>
+                    <p>Reduce 2+ hours of daily manual work to just 5 minutes. Auto-generate bills, track deliveries,
+                        and manage customers effortlessly.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">02</div>
+                    <h3>Eliminate Billing Errors</h3>
+                    <p>100% accurate calculations. No more customer disputes over incorrect bills or missed deliveries.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">03</div>
+                    <h3>Increase Revenue by 20%</h3>
+                    <p>Better payment collection through automated reminders. Track every rupee and reduce losses.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">04</div>
+                    <h3>Scale Without Stress</h3>
+                    <p>Easily manage 10x customers without hiring extra staff. System handles everything automatically.
+                    </p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">05</div>
+                    <h3>Real-Time Visibility</h3>
+                    <p>Know exactly what's happening in your dairy at any moment. Track deliveries, payments, and
+                        production in real-time.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-number">06</div>
+                    <h3>Professional Image</h3>
+                    <p>Digital bills, WhatsApp notifications, and customer portal make you stand out from competitors.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple Process</span>
+                <h2>Get Started in 3 Simple Steps</h2>
+                <p>From signup to operation in under 30 minutes</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Sign Up & Setup</h3>
+                        <p>Create your account, add your dairy farm details, and import your customer list. Takes just
+                            10 minutes.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Configure Settings</h3>
+                        <p>Set up products, pricing, delivery routes, and employee access. We'll guide you through every
+                            step.</p>
+                    </div>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Operating</h3>
+                        <p>Your delivery boys start using the mobile app, and you get real-time updates on everything.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple Pricing</span>
+                <h2>Affordable Plans for Every Dairy</h2>
+                <p>Pay only for what you use. First 50 customers always free!</p>
+            </div>
+
+            <div class="pricing-highlight">
+                <div class="highlight-card">
+                    <h3>🎉 Special Launch Offer</h3>
+                    <p><strong>30 Days Free Trial</strong> - No credit card required</p>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Best for Starters</div>
+                    <div class="pricing-header">
+                        <h3>Free Forever</h3>
+                        <div class="price">
+                            <span class="price-amount">₹0</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <p class="price-description">For up to 50 customers</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✅ Up to 50 customers</li>
+                        <li>✅ Customer management</li>
+                        <li>✅ Basic billing</li>
+                        <li>✅ Delivery tracking</li>
+                        <li>✅ Mobile app access</li>
+                        <li>✅ Email support</li>
+                        <li>❌ WhatsApp notifications</li>
+                        <li>❌ Advanced analytics</li>
+                        <li>❌ Priority support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Start Free</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pay-As-You-Grow</h3>
+                        <div class="price">
+                            <span class="price-amount">₹1</span>
+                            <span class="price-period">/customer/day</span>
+                        </div>
+                        <p class="price-description">Only for customers above 50</p>
+                    </div>
+                    <div class="pricing-example">
+                        <strong>Example:</strong> For 200 customers
+                        <br>
+                        First 50 customers: <strong>Free</strong>
+                        <br>
+                        Next 150 customers: ₹1 × 150 = ₹150/day
+                        <br>
+                        <strong>Monthly Cost: ₹4,500</strong>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✅ Unlimited customers</li>
+                        <li>✅ All features included</li>
+                        <li>✅ WhatsApp notifications</li>
+                        <li>✅ Advanced analytics</li>
+                        <li>✅ Lead management</li>
+                        <li>✅ Inventory tracking</li>
+                        <li>✅ Animal management</li>
+                        <li>✅ Priority support</li>
+                        <li>✅ Free updates forever</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Start 30-Day Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-badge">Enterprise</div>
+                    <div class="pricing-header">
+                        <h3>Custom Plan</h3>
+                        <div class="price">
+                            <span class="price-amount">Custom</span>
+                        </div>
+                        <p class="price-description">For 500+ customers</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✅ Everything in Pay-As-You-Grow</li>
+                        <li>✅ Volume discounts</li>
+                        <li>✅ Dedicated account manager</li>
+                        <li>✅ Custom integrations</li>
+                        <li>✅ On-site training</li>
+                        <li>✅ 24/7 phone support</li>
+                        <li>✅ Priority feature requests</li>
+                        <li>✅ Data migration help</li>
+                        <li>✅ White-label option</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Contact Sales</a>
+                </div>
+            </div>
+
+            <div class="pricing-calculator">
+                <h3>💰 Calculate Your Monthly Cost</h3>
+                <div class="calculator-content">
+                    <div class="calculator-input">
+                        <label>Number of Customers</label>
+                        <input type="number" id="customerCount" value="100" min="1" max="10000">
+                    </div>
+                    <div class="calculator-result">
+                        <div class="result-breakdown">
+                            <div>First 50 customers:</div>
+                            <div><strong>Free</strong></div>
+                        </div>
+                        <div class="result-breakdown">
+                            <div>Remaining <span id="chargeableCustomers">50</span> customers:</div>
+                            <div><strong>₹<span id="dailyCost">50</span>/day</strong></div>
+                        </div>
+                        <div class="result-total">
+                            <div>Monthly Total:</div>
+                            <div><strong>₹<span id="monthlyCost">1,500</span></strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-faq-link">
+                <p>Questions about pricing? Check our <a href="#faq">detailed FAQ section</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>LactoSync vs Traditional Methods</h2>
+                <p>See the difference for yourself</p>
+            </div>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Manual Method</th>
+                            <th>LactoSync</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Daily Admin Time</td>
+                            <td>❌ 2-3 hours</td>
+                            <td>✅ 5 minutes</td>
+                        </tr>
+                        <tr>
+                            <td>Billing Accuracy</td>
+                            <td>❌ 80-85%</td>
+                            <td>✅ 100%</td>
+                        </tr>
+                        <tr>
+                            <td>Payment Collection</td>
+                            <td>❌ 70-75%</td>
+                            <td>✅ 90%+</td>
+                        </tr>
+                        <tr>
+                            <td>Monthly Cost</td>
+                            <td>❌ ₹10,000+ (Staff time)</td>
+                            <td>✅ ₹1,500-5,000</td>
+                        </tr>
+                        <tr>
+                            <td>Real-time Updates</td>
+                            <td>❌ Not possible</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Portal</td>
+                            <td>❌ No</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td>WhatsApp Integration</td>
+                            <td>❌ Manual</td>
+                            <td>✅ Automated</td>
+                        </tr>
+                        <tr>
+                            <td>Business Analytics</td>
+                            <td>❌ Difficult</td>
+                            <td>✅ Real-time</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Got Questions?</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about LactoSync</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-category">
+                    <h3>General Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">What is LactoSync?</div>
+                        <div class="faq-answer">
+                            LactoSync is a comprehensive dairy farm management software that automates your entire
+                            operations - from customer management and billing to delivery tracking and milk production
+                            monitoring. It's designed specifically for dairy farms in India.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Who can use LactoSync?</div>
+                        <div class="faq-answer">
+                            LactoSync is perfect for dairy farms of all sizes - from small family businesses serving 20
+                            customers to large cooperatives with 500+ customers. Whether you deliver milk door-to-door
+                            or run a dairy shop, LactoSync can help.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What devices does LactoSync work on?</div>
+                        <div class="faq-answer">
+                            LactoSync works on smartphones (Android & iOS), tablets, laptops, and desktop computers. The
+                            mobile app is perfect for delivery boys, while the web dashboard is ideal for managers and
+                            owners.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need internet connection?</div>
+                        <div class="faq-answer">
+                            The mobile app works offline! Delivery boys can mark deliveries even without internet, and
+                            data syncs automatically when they're back online. The web dashboard requires internet.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Pricing & Billing</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">How does the pricing work?</div>
+                        <div class="faq-answer">
+                            Simple! First 50 customers are always FREE. After that, you pay only ₹1 per customer per
+                            day. For example:
+                            <br><br>
+                            • 30 customers = ₹0/month (Free forever)
+                            <br>
+                            • 100 customers = ₹1,500/month (50 free + 50×₹1×30 days)
+                            <br>
+                            • 200 customers = ₹4,500/month (50 free + 150×₹1×30 days)
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is there really a 30-day free trial?</div>
+                        <div class="faq-answer">
+                            Yes! You get full access to all features for 30 days. No credit card required. Try
+                            everything risk-free and decide if LactoSync is right for you.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What happens after the trial ends?</div>
+                        <div class="faq-answer">
+                            After 30 days, if you have 50 or fewer customers, you continue using LactoSync for FREE
+                            forever. If you have more than 50 customers, you'll be charged ₹1/customer/day for customers
+                            above 50. You can cancel anytime.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Are there any hidden charges?</div>
+                        <div class="faq-answer">
+                            Absolutely not! The pricing is transparent: ₹1 per customer per day for customers above 50.
+                            No setup fees, no hidden charges, no surprise costs. WhatsApp SMS charges (if used) are
+                            separate and minimal (₹0.10-0.20 per message).
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I get a discount for large volumes?</div>
+                        <div class="faq-answer">
+                            Yes! For dairy farms with 500+ customers, we offer custom enterprise plans with volume
+                            discounts. Contact our sales team for a personalized quote.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What payment methods do you accept?</div>
+                        <div class="faq-answer">
+                            We accept UPI, credit/debit cards, net banking, and bank transfers. Invoices are sent
+                            monthly, and payments are due within 7 days.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Features & Functionality</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I import my existing customer data?</div>
+                        <div class="faq-answer">
+                            Yes! You can easily import your customer list from Excel/CSV files. We also provide
+                            step-by-step guidance and support to help you migrate your data.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Does it support WhatsApp notifications?</div>
+                        <div class="faq-answer">
+                            Yes! LactoSync integrates with WhatsApp to send automated payment reminders, bills, delivery
+                            updates, and other notifications to your customers. This feature is available in paid plans.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can delivery boys use it without training?</div>
+                        <div class="faq-answer">
+                            Absolutely! The mobile app is extremely simple and intuitive. Most delivery boys learn it in
+                            5 minutes. We also provide video tutorials in Hindi and Gujarati.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I track multiple dairy farms?</div>
+                        <div class="faq-answer">
+                            Yes! If you own multiple dairy farms, each farm gets its own separate account with
+                            independent customer lists, billing, and reports.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Does it work in regional languages?</div>
+                        <div class="faq-answer">
+                            Currently, LactoSync supports English, Hindi, and Gujarati. We're working on adding more
+                            regional languages based on user demand.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Setup & Support</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">How long does setup take?</div>
+                        <div class="faq-answer">
+                            Setup is incredibly fast! You can create your account and add customers in under 30 minutes.
+                            Most dairy farms are fully operational within a day.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do you provide training?</div>
+                        <div class="faq-answer">
+                            Yes! We provide free video tutorials, documentation, and email support. Enterprise customers
+                            also get on-site training and dedicated account managers.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">What kind of support do you offer?</div>
+                        <div class="faq-answer">
+                            Free plans get email support (response within 24 hours). Paid plans get priority email and
+                            WhatsApp support (response within 4 hours). Enterprise customers get 24/7 phone support.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Is my data safe and secure?</div>
+                        <div class="faq-answer">
+                            Absolutely! We use bank-level encryption to protect your data. Daily automatic backups
+                            ensure you never lose information. Your data is stored in secure cloud servers in India.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can I cancel anytime?</div>
+                        <div class="faq-answer">
+                            Yes! There are no long-term contracts. You can cancel your subscription anytime. If you
+                            cancel, you'll retain access until the end of your paid period. You can export all your data
+                            before canceling.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <h3>Technical Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">What if my phone/computer crashes?</div>
+                        <div class="faq-answer">
+                            No worries! All your data is safely stored in the cloud. Simply login from any device and
+                            continue working. Nothing is lost.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Do I need to buy any hardware?</div>
+                        <div class="faq-answer">
+                            No! LactoSync works on devices you already own - smartphones, tablets, laptops. You don't
+                            need to purchase any special hardware or equipment.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Can multiple people use it simultaneously?</div>
+                        <div class="faq-answer">
+                            Yes! Unlimited users can access LactoSync at the same time. Set up separate accounts for
+                            your manager, delivery boys, accountant, etc., each with appropriate access levels.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Does it integrate with accounting software?</div>
+                        <div class="faq-answer">
+                            You can export data to Excel/CSV format which can be imported into most accounting software
+                            like Tally, QuickBooks, etc. Direct integrations are planned for future updates.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Dairy Business?</h2>
+                <p>Join hundreds of dairy farms already saving time and increasing profits with LactoSync</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-large">Start 30-Day Free Trial</a>
+                    <a href="#" class="btn btn-secondary btn-large">Schedule a Demo</a>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature">✅ No credit card required</div>
+                    <div class="cta-feature">✅ Setup in 30 minutes</div>
+                    <div class="cta-feature">✅ Cancel anytime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/logo/logo.png" alt="LactoSync Logo" class="logo-icon">
+                    </div>
+                    <p>Modern dairy farm management made simple. Save time, eliminate errors, and grow your business.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Data Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LactoSync by Akshara Technologies. All rights reserved.</p>
+                <p>Made with ❤️ for Indian dairy farmers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
