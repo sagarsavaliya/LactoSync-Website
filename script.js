@@ -746,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Pricing Calculator - Live Animated Update
 if (customerCountInput) {
-    customerCountInput.addEventListener('input', function() {
+    customerCountInput.addEventListener('input', function () {
         const resultElements = [chargeableCustomersSpan, dailyCostSpan, monthlyCostSpan];
         resultElements.forEach(el => {
             if (el) {
