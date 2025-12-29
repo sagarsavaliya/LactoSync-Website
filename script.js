@@ -1010,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function sendEmailNotification(formData) {
         // Prepare email content
         const emailContent = {
-            to: 'info@aksharatech.com',
+            to: 'sales@lactosync.com',
             subject: 'New LactoSync Demo Request',
             name: formData.fullName,
             phone: formData.phone,
@@ -1027,17 +1027,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 timeStyle: 'long'
             })
         };
-
-        // Option 1: Using EmailJS (Recommended - No backend needed)
-        // Uncomment and configure after setting up EmailJS account
-        /*
-        return emailjs.send(
-            'YOUR_SERVICE_ID',      // Get from EmailJS dashboard
-            'YOUR_TEMPLATE_ID',     // Get from EmailJS dashboard
-            emailContent,
-            'YOUR_PUBLIC_KEY'       // Get from EmailJS dashboard
-        );
-        */
 
         // Option 3: Using FormSubmit.co (Active)
         const formSubmitData = new FormData();
@@ -1057,7 +1046,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formSubmitData.append('Additional Notes', emailContent.message);
         formSubmitData.append('Submitted On', emailContent.timestamp);
 
-        return fetch('https://formsubmit.co/info@aksharatech.com', {
+        return fetch('https://formsubmit.co/sales@lactosync.com', {
             method: 'POST',
             body: formSubmitData
         });
