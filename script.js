@@ -900,3 +900,232 @@ document.querySelectorAll('.faq-question').forEach(question => {
         trackEvent('FAQ', 'Click', this.textContent.trim());
     });
 });
+
+// ========== DEMO MODAL FUNCTIONALITY ==========
+
+document.addEventListener('DOMContentLoaded', function () {
+    const demoModal = document.getElementById('demoModal');
+    const demoForm = document.getElementById('demoForm');
+    const closeBtn = document.querySelector('.demo-modal-close');
+    const cancelBtn = document.querySelector('.demo-cancel');
+
+    // Get all "Schedule a Demo" buttons - both by class and by text content
+    const scheduleDemoButtonsByClass = document.querySelectorAll('.schedule-demo-btn');
+    const scheduleDemoButtonsByText = document.querySelectorAll('a[href="#"]:not([class*="nav"])');
+
+    // Filter text-based buttons
+    const demoButtonsByText = Array.from(scheduleDemoButtonsByText).filter(btn =>
+        btn.textContent.trim() === 'Schedule a Demo'
+    );
+
+    // Combine both sets of buttons
+    const allDemoButtons = [...scheduleDemoButtonsByClass, ...demoButtonsByText];
+
+    // Open modal when any Schedule Demo button is clicked
+    allDemoButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            openDemoModal();
+        });
+    });
+
+    // Close modal when close button is clicked
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDemoModal);
+    }
+
+    // Close modal when cancel button is clicked
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeDemoModal);
+    }
+
+    // Close modal when clicking outside the modal content
+    if (demoModal) {
+        demoModal.addEventListener('click', function (e) {
+            if (e.target === demoModal) {
+                closeDemoModal();
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && demoModal.classList.contains('active')) {
+            closeDemoModal();
+        }
+    });
+
+    // Handle form submission
+    if (demoForm) {
+        demoForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(demoForm);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            // Add loading state to submit button
+            const submitBtn = demoForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
+
+            try {
+                // Send email notification
+                await sendEmailNotification(formObject);
+
+                // Log form data
+                console.log('Demo Request Submitted:', formObject);
+                trackEvent('Demo', 'Schedule', formObject.email);
+
+                // Show success message
+                showSuccessMessage();
+
+                // Reset form after delay
+                setTimeout(() => {
+                    demoForm.reset();
+                    closeDemoModal();
+                    submitBtn.classList.remove('btn-loading');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }, 2000);
+            } catch (error) {
+                console.error('Error submitting form:', error);
+
+                // Show error message
+                alert('Sorry, there was an error submitting your request. Please try again or contact us directly at info@aksharatech.com');
+
+                // Re-enable button
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    }
+
+    // Function to send email notification
+    async function sendEmailNotification(formData) {
+        // Prepare email content
+        const emailContent = {
+            to: 'info@aksharatech.com',
+            subject: 'New LactoSync Demo Request',
+            name: formData.fullName,
+            phone: formData.phone,
+            email: formData.email,
+            dairyName: formData.dairyName || 'Not provided',
+            customerCount: formData.customerCount || 'Not provided',
+            address: formData.address || 'Not provided',
+            city: formData.city || 'Not provided',
+            state: formData.state || 'Not provided',
+            message: formData.message || 'No additional notes',
+            timestamp: new Date().toLocaleString('en-IN', {
+                timeZone: 'Asia/Kolkata',
+                dateStyle: 'full',
+                timeStyle: 'long'
+            })
+        };
+
+        // Option 1: Using EmailJS (Recommended - No backend needed)
+        // Uncomment and configure after setting up EmailJS account
+        /*
+        return emailjs.send(
+            'YOUR_SERVICE_ID',      // Get from EmailJS dashboard
+            'YOUR_TEMPLATE_ID',     // Get from EmailJS dashboard
+            emailContent,
+            'YOUR_PUBLIC_KEY'       // Get from EmailJS dashboard
+        );
+        */
+
+        // Option 3: Using FormSubmit.co (Active)
+        const formSubmitData = new FormData();
+        formSubmitData.append('_subject', 'New LactoSync Demo Request');
+        formSubmitData.append('_template', 'table');
+        formSubmitData.append('_captcha', 'false');
+
+        // Add all form fields
+        formSubmitData.append('Full Name', emailContent.name);
+        formSubmitData.append('Phone Number', emailContent.phone);
+        formSubmitData.append('Email Address', emailContent.email);
+        formSubmitData.append('Dairy Farm Name', emailContent.dairyName);
+        formSubmitData.append('Number of Customers', emailContent.customerCount);
+        formSubmitData.append('Address', emailContent.address);
+        formSubmitData.append('City', emailContent.city);
+        formSubmitData.append('State', emailContent.state);
+        formSubmitData.append('Additional Notes', emailContent.message);
+        formSubmitData.append('Submitted On', emailContent.timestamp);
+
+        return fetch('https://formsubmit.co/info@aksharatech.com', {
+            method: 'POST',
+            body: formSubmitData
+        });
+    }
+
+    // Set minimum date for date picker to today
+    const dateInput = document.getElementById('preferredDate');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+
+    // Phone number validation
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            // Remove non-numeric characters
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+            // Limit to 10 digits
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10);
+            }
+        });
+    }
+
+    function openDemoModal() {
+        if (demoModal) {
+            demoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            trackEvent('Modal', 'Open', 'Demo Modal');
+        }
+    }
+
+    function closeDemoModal() {
+        if (demoModal) {
+            demoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            trackEvent('Modal', 'Close', 'Demo Modal');
+        }
+    }
+
+    function showSuccessMessage() {
+        const formContent = demoForm.innerHTML;
+
+        demoForm.innerHTML = `
+            <div class="form-success">
+                <h3>🎉 Demo Scheduled Successfully!</h3>
+                <p>Thank you for your interest in LactoSync. We'll contact you shortly to confirm your demo session.</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Check your email for confirmation details.</p>
+            </div>
+        `;
+
+        // Reset form content after modal closes
+        demoModal.addEventListener('transitionend', function resetForm() {
+            if (!demoModal.classList.contains('active')) {
+                demoForm.innerHTML = formContent;
+                demoModal.removeEventListener('transitionend', resetForm);
+
+                // Re-attach form submit listener
+                const newForm = document.getElementById('demoForm');
+                if (newForm) {
+                    newForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        // Repeat the same submission logic
+                    });
+                }
+            }
+        });
+    }
+});
