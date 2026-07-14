@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             cursorFollower.style.transform = 'scale(1.5)';
-            cursorFollower.style.borderColor = '#4F46E5';
+            cursorFollower.style.borderColor = '#2E6E45';
         });
 
         el.addEventListener('mouseleave', () => {
             cursorFollower.style.transform = 'scale(1)';
-            cursorFollower.style.borderColor = '#4F46E5';
+            cursorFollower.style.borderColor = '#2E6E45';
         });
     });
 });
@@ -94,43 +94,6 @@ document.querySelectorAll('.faq-question').forEach(question => {
         }
     });
 });
-
-// Pricing Calculator
-const customerCountInput = document.getElementById('customerCount');
-const chargeableCustomersSpan = document.getElementById('chargeableCustomers');
-const dailyCostSpan = document.getElementById('dailyCost');
-const monthlyCostSpan = document.getElementById('monthlyCost');
-
-function calculatePricing() {
-    const customerCount = parseInt(customerCountInput.value);
-
-    // Handle invalid input
-    if (isNaN(customerCount) || customerCount < 0) {
-        chargeableCustomersSpan.textContent = '0';
-        dailyCostSpan.textContent = '0';
-        monthlyCostSpan.textContent = '0';
-        return;
-    }
-
-    const freeLimit = 50;
-    const dailyRatePerCustomer = 1;
-    const daysInMonth = 30;
-
-    let chargeableCustomers = Math.max(0, customerCount - freeLimit);
-    let dailyCost = chargeableCustomers * dailyRatePerCustomer;
-    let monthlyCost = dailyCost * daysInMonth;
-
-    // Update display - ensure proper formatting
-    chargeableCustomersSpan.textContent = chargeableCustomers.toLocaleString('en-IN');
-    dailyCostSpan.textContent = dailyCost.toLocaleString('en-IN');
-    monthlyCostSpan.textContent = monthlyCost.toLocaleString('en-IN');
-}
-
-if (customerCountInput) {
-    customerCountInput.addEventListener('input', calculatePricing);
-    // Initialize with default value
-    calculatePricing();
-}
 
 // Floating Elements Animation
 document.addEventListener('DOMContentLoaded', function () {
@@ -253,23 +216,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Enhanced Phone Mockup Animation
+// Note: deliberately translate/rotate only, never scale() — scaling a raster
+// image via CSS transform forces the browser to continuously resample it,
+// which is what made the mockup look soft/blurry. Scroll and mouse influence
+// are combined into a single transform instead of overwriting each other,
+// and the scroll contribution is capped so it doesn't run away on long pages.
 document.addEventListener('DOMContentLoaded', function () {
     const phoneMockup = document.querySelector('.phone-mockup');
 
     if (phoneMockup) {
+        let scrollOffset = 0;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        function applyTransform() {
+            phoneMockup.style.transform =
+                `translate(${mouseX}px, ${mouseY + scrollOffset}px) rotate(${scrollOffset * 0.02}deg)`;
+        }
+
         window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const rate = scrolled * 0.3;
+            scrollOffset = Math.min(window.scrollY, 300) * 0.12;
+            applyTransform();
+        }, { passive: true });
 
-            phoneMockup.style.transform = `translateY(${rate}px) rotate(${rate * 0.05}deg)`;
-        });
-
-        // Mouse move parallax effect
         document.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX / window.innerWidth - 0.5) * 30;
-            const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
-
-            phoneMockup.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.02)`;
+            mouseX = (e.clientX / window.innerWidth - 0.5) * 16;
+            mouseY = (e.clientY / window.innerHeight - 0.5) * 16;
+            applyTransform();
         });
     }
 });
@@ -321,20 +294,6 @@ document.addEventListener('DOMContentLoaded', function () {
     images.forEach(img => imageObserver.observe(img));
 });
 
-// Gradient Text Animation
-document.addEventListener('DOMContentLoaded', function () {
-    const gradientTexts = document.querySelectorAll('.gradient-text');
-
-    gradientTexts.forEach(text => {
-        let hue = 0;
-
-        setInterval(() => {
-            hue = (hue + 1) % 360;
-            text.style.filter = `hue-rotate(${hue}deg)`;
-        }, 50);
-    });
-});
-
 // Progress Bar for Page Scroll
 document.addEventListener('DOMContentLoaded', function () {
     const progressBar = document.createElement('div');
@@ -343,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
         top: 0;
         left: 0;
         height: 4px;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(90deg, #2E6E45 0%, #4DB89A 100%);
         width: 0%;
         z-index: 10000;
         transition: width 0.1s ease;
@@ -485,7 +444,7 @@ document.addEventListener('DOMContentLoaded', function () {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: #4F46E5;
+        background: linear-gradient(135deg, #2E6E45 0%, #4DB89A 100%);
         color: white;
         border: none;
         font-size: 24px;
@@ -493,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
         opacity: 0;
         transition: opacity 0.3s ease, transform 0.3s ease;
         z-index: 1000;
-        box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+        box-shadow: 0 4px 20px rgba(46, 110, 69, 0.35);
     `;
 
     document.body.appendChild(scrollTopBtn);
@@ -627,7 +586,7 @@ const benefitObserver = new IntersectionObserver((entries) => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateX(0)';
                 if (number) {
-                    number.style.textShadow = '0 0 20px rgba(79, 70, 229, 0.6)';
+                    number.style.textShadow = '0 0 20px rgba(46, 110, 69, 0.5)';
                 }
             }, index * 100);
             benefitObserver.unobserve(entry.target);
@@ -744,23 +703,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Pricing Calculator - Live Animated Update
-if (customerCountInput) {
-    customerCountInput.addEventListener('input', function () {
-        const resultElements = [chargeableCustomersSpan, dailyCostSpan, monthlyCostSpan];
-        resultElements.forEach(el => {
-            if (el) {
-                el.style.transform = 'scale(1.1)';
-                el.style.color = '#4F46E5';
-                setTimeout(() => {
-                    el.style.transform = 'scale(1)';
-                    el.style.color = '';
-                }, 200);
-            }
-        });
-    });
-}
-
 // Section Headers - Typing Effect for Tags
 document.addEventListener('DOMContentLoaded', function () {
     const sectionTags = document.querySelectorAll('.section-tag');
@@ -804,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 position: absolute;
                 width: ${Math.random() * 8 + 4}px;
                 height: ${Math.random() * 8 + 4}px;
-                background: rgba(79, 70, 229, ${Math.random() * 0.3 + 0.1});
+                background: rgba(77, 184, 154, ${Math.random() * 0.3 + 0.1});
                 border-radius: 50%;
                 left: ${Math.random() * 100}%;
                 top: ${Math.random() * 100}%;
@@ -868,7 +810,7 @@ Built with ❤️ by Akshara Technologies
 Interested in working with us?
 Contact: info@aksharatech.com
 `,
-    'color: #4F46E5; font-size: 14px; font-weight: bold;'
+    'color: #2E6E45; font-size: 14px; font-weight: bold;'
 );
 
 // Analytics Placeholder (Google Analytics, etc.)
@@ -886,13 +828,6 @@ document.querySelectorAll('.btn').forEach(btn => {
         trackEvent('Button', 'Click', buttonText);
     });
 });
-
-// Track pricing calculator usage
-if (customerCountInput) {
-    customerCountInput.addEventListener('change', function () {
-        trackEvent('Pricing Calculator', 'Calculate', this.value);
-    });
-}
 
 // Track FAQ interactions
 document.querySelectorAll('.faq-question').forEach(question => {
@@ -1017,9 +952,6 @@ document.addEventListener('DOMContentLoaded', function () {
             email: formData.email,
             dairyName: formData.dairyName || 'Not provided',
             customerCount: formData.customerCount || 'Not provided',
-            address: formData.address || 'Not provided',
-            city: formData.city || 'Not provided',
-            state: formData.state || 'Not provided',
             message: formData.message || 'No additional notes',
             timestamp: new Date().toLocaleString('en-IN', {
                 timeZone: 'Asia/Kolkata',
@@ -1040,9 +972,6 @@ document.addEventListener('DOMContentLoaded', function () {
         formSubmitData.append('Email Address', emailContent.email);
         formSubmitData.append('Dairy Farm Name', emailContent.dairyName);
         formSubmitData.append('Number of Customers', emailContent.customerCount);
-        formSubmitData.append('Address', emailContent.address);
-        formSubmitData.append('City', emailContent.city);
-        formSubmitData.append('State', emailContent.state);
         formSubmitData.append('Additional Notes', emailContent.message);
         formSubmitData.append('Submitted On', emailContent.timestamp);
 
@@ -1050,13 +979,6 @@ document.addEventListener('DOMContentLoaded', function () {
             method: 'POST',
             body: formSubmitData
         });
-    }
-
-    // Set minimum date for date picker to today
-    const dateInput = document.getElementById('preferredDate');
-    if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
     }
 
     // Phone number validation
