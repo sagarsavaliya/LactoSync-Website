@@ -135,7 +135,8 @@ const observer = new IntersectionObserver((entries) => {
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', function () {
     const animateElements = document.querySelectorAll(
-        '.feature-card, .benefit-card, .problem-card, .who-card, .step-card, .pricing-card'
+        '.feature-card, .benefit-card, .problem-card, .who-card, .step-card, .pricing-card, ' +
+        '.solution-card, .app-preview-card, .video-card, .testimonial-card'
     );
 
     animateElements.forEach(el => {
@@ -1039,4 +1040,66 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+});
+
+// ROI Calculator
+document.addEventListener('DOMContentLoaded', function () {
+    const hoursInput = document.getElementById('roiHours');
+    const rateInput = document.getElementById('roiRate');
+
+    if (!hoursInput || !rateInput) return;
+
+    const hoursValue = document.getElementById('roiHoursValue');
+    const rateValue = document.getElementById('roiRateValue');
+    const hoursSavedEl = document.getElementById('roiHoursSaved');
+    const moneySavedEl = document.getElementById('roiMoneySaved');
+
+    const TIME_SAVED_RATIO = 0.95; // matches the 95% admin-time reduction shown elsewhere on the page
+
+    function formatINR(amount) {
+        return '₹' + Math.round(amount).toLocaleString('en-IN');
+    }
+
+    function recalculate() {
+        const dailyHours = parseFloat(hoursInput.value);
+        const hourlyRate = parseInt(rateInput.value, 10);
+
+        hoursValue.textContent = dailyHours + ' hrs';
+        rateValue.textContent = '₹' + hourlyRate;
+
+        const hoursSavedPerMonth = dailyHours * TIME_SAVED_RATIO * 30;
+        const moneySavedPerMonth = hoursSavedPerMonth * hourlyRate;
+
+        hoursSavedEl.textContent = Math.round(hoursSavedPerMonth) + ' hrs';
+        moneySavedEl.textContent = formatINR(moneySavedPerMonth);
+    }
+
+    [hoursInput, rateInput].forEach(input => {
+        input.addEventListener('input', recalculate);
+    });
+
+    recalculate();
+});
+
+// Demo video slots — real uploads pending, so clicking surfaces a "coming soon" state
+document.addEventListener('DOMContentLoaded', function () {
+    const videoCards = document.querySelectorAll('.video-card[data-video-slot]');
+
+    function markComingSoon(card) {
+        const badge = card.querySelector('.video-badge');
+        if (!badge) return;
+        const original = badge.textContent;
+        badge.textContent = 'Tutorial in progress';
+        setTimeout(() => { badge.textContent = original; }, 2200);
+    }
+
+    videoCards.forEach(card => {
+        card.addEventListener('click', () => markComingSoon(card));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                markComingSoon(card);
+            }
+        });
+    });
 });
