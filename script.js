@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Pricing Card Hover Effect
+// Pricing Card Hover Effect (legacy cards, if present)
 document.querySelectorAll('.pricing-card').forEach(card => {
     card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-15px) scale(1.02)';
@@ -654,7 +654,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Pricing Section - Card Float Animation
+// Pricing Section - Card Float Animation (legacy cards, if present)
 document.querySelectorAll('.pricing-card').forEach((card, index) => {
     card.style.animation = `float 3s ease-in-out ${index * 0.3}s infinite`;
 });

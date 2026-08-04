@@ -494,7 +494,7 @@ section {
 }
 
 /* Fewer, higher-impact elements keep the full blurred liquid-glass treatment */
-.pricing-card,
+.pricing-matrix,
 .highlight-card {
     background: var(--glass-bg);
     backdrop-filter: var(--glass-blur);
@@ -942,16 +942,226 @@ section {
     font-size: 0.92rem;
 }
 
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: stretch;
-    margin-bottom: 48px;
+.pricing-gst-notice {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 28px;
+    padding: 12px 20px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    background: rgba(46, 110, 69, 0.06);
+    border: 1px solid rgba(46, 110, 69, 0.16);
+    border-radius: var(--radius-sm);
 }
 
-.pricing-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
+.pricing-gst-notice strong {
+    color: var(--primary-dark);
+}
+
+.pricing-matrix {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 40px;
+}
+
+.pricing-matrix table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.pricing-matrix thead th {
+    padding: 18px 14px 16px;
+    vertical-align: bottom;
+    background: rgba(46, 110, 69, 0.04);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.pricing-matrix thead th:first-child {
+    text-align: left;
+    padding-left: 22px;
+}
+
+.pricing-matrix-feature-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.plan-col-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.plan-col-badge {
+    display: inline-block;
+    margin-bottom: 4px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-brand);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.plan-col-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.plan-col-price {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.plan-col-price span {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 2px;
+}
+
+.plan-col-excl {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--warning-color);
+}
+
+.pricing-matrix tbody th,
+.pricing-matrix tbody td {
+    padding: 11px 14px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.pricing-matrix tbody th {
+    text-align: left;
+    padding-left: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    width: 28%;
+}
+
+.pricing-matrix tbody td {
+    text-align: center;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+
+.pricing-matrix tbody tr:hover th,
+.pricing-matrix tbody tr:hover td {
+    background: rgba(46, 110, 69, 0.04);
+}
+
+.pricing-matrix .plan-col-featured {
+    background: rgba(46, 110, 69, 0.06);
+}
+
+.pricing-matrix thead .plan-col-featured {
+    background: rgba(46, 110, 69, 0.1);
+    box-shadow: inset 0 3px 0 var(--primary-color);
+}
+
+.pricing-matrix-money td,
+.pricing-matrix-money th {
+    font-size: 0.86rem;
+}
+
+.pricing-matrix-total th,
+.pricing-matrix-total td {
+    background: rgba(46, 110, 69, 0.07);
+    border-top: 1.5px solid rgba(46, 110, 69, 0.22);
+    border-bottom: 1.5px solid rgba(46, 110, 69, 0.22);
+    color: var(--text-primary);
+    font-size: 0.92rem;
+}
+
+.pricing-matrix-total td strong {
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+}
+
+.pricing-matrix-total .plan-col-featured {
+    background: rgba(46, 110, 69, 0.12);
+}
+
+.pricing-matrix-cta th,
+.pricing-matrix-cta td {
+    padding: 16px 12px 18px;
+    border-top: 1px solid var(--border-color);
+    background: transparent;
+}
+
+.pricing-matrix-cta .btn {
+    display: inline-flex;
+    width: 100%;
+    max-width: 140px;
+    padding: 10px 12px;
+    font-size: 0.84rem;
+    justify-content: center;
+}
+
+.pricing-matrix .ico-check,
+.pricing-matrix .ico-cross {
+    margin: 0 auto;
+}
+
+.ico-check,
+.ico-cross {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.ico-check {
+    background: rgba(30, 142, 90, 0.14);
+    color: var(--success-color);
+}
+
+.ico-cross {
+    background: rgba(139, 146, 137, 0.14);
+    color: var(--text-light);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .pricing-enterprise {
@@ -981,114 +1191,6 @@ section {
 
 .pricing-enterprise .btn {
     flex-shrink: 0;
-}
-
-.pricing-card {
-    padding: 36px 30px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.pricing-card.featured {
-    background: var(--glass-bg-strong);
-    border: 1.5px solid var(--primary-light);
-    box-shadow: var(--glass-shadow-lg);
-    transform: scale(1.04);
-}
-
-.pricing-badge {
-    display: inline-block;
-    align-self: flex-start;
-    padding: 5px 14px;
-    border-radius: var(--radius-full);
-    background: rgba(46, 110, 69, 0.1);
-    color: var(--primary-color);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.pricing-card.featured .pricing-badge {
-    background: var(--gradient-brand);
-    color: #fff;
-}
-
-.pricing-header h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.price {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 6px;
-}
-
-.price-amount {
-    font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.price-period {
-    color: var(--text-secondary);
-    font-size: 0.92rem;
-}
-
-.price-description {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 22px;
-}
-
-.pricing-features {
-    flex: 1;
-    margin-bottom: 26px;
-}
-
-.pricing-features li {
-    font-size: 0.92rem;
-    padding: 8px 0;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.pricing-features li:first-child {
-    border-top: none;
-}
-
-.ico-check,
-.ico-cross {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    font-size: 0.72rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.ico-check {
-    background: rgba(30, 142, 90, 0.14);
-    color: var(--success-color);
-}
-
-.ico-cross {
-    background: rgba(139, 146, 137, 0.14);
-    color: var(--text-light);
-}
-
-.pricing-card .btn {
-    width: 100%;
 }
 
 .pricing-faq-link {
@@ -1706,6 +1808,8 @@ section {
     padding: 48px;
     max-width: 880px;
     margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .legal-card h2 {
@@ -1757,13 +1861,13 @@ section {
     width: 100%;
     border-collapse: collapse;
     margin: 16px 0;
-    font-size: 0.92rem;
+    font-size: 0.85rem;
 }
 
 .legal-card table th,
 .legal-card table td {
     text-align: left;
-    padding: 10px 14px;
+    padding: 10px 12px;
     border: 1px solid var(--border-color);
 }
 
@@ -1937,7 +2041,6 @@ section {
     .features-grid,
     .who-grid,
     .benefits-grid,
-    .pricing-grid,
     .contact-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2011,14 +2114,9 @@ section {
     .features-grid,
     .who-grid,
     .benefits-grid,
-    .pricing-grid,
     .contact-grid,
     .faq-grid {
         grid-template-columns: 1fr;
-    }
-
-    .pricing-card.featured {
-        transform: none;
     }
 
     .steps-grid {
