@@ -1,4 +1,23 @@
+# robots.txt for https://lactosync.com/
+# Everything on this site is meant to be crawled and indexed. The rules below
+# only keep crawlers out of things that are not pages.
+
 User-agent: *
 Allow: /
+Disallow: /404.html
+
+# Crawlers must be able to fetch CSS, JS and images, or Google renders the page
+# without its layout and judges it on that. Stated explicitly so a future
+# Disallow rule can't accidentally block them.
+Allow: /styles.css
+Allow: /script.js
+Allow: /assets/
+
+# AhrefsBot and SemrushBot crawl aggressively and provide no search traffic.
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 
 Sitemap: https://lactosync.com/sitemap.xml

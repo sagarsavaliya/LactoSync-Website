@@ -27,3 +27,6 @@ jobs:
           **/node_modules/**
           **/.github/**
           **/README.md
+          **/.claude/**
+          **/.mcp.json
+          **/*.pdf

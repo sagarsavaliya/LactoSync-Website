@@ -1,0 +1,12 @@
+# MCP server config — contains a Google OAuth client secret and refresh token.
+# Must never be committed, and is excluded from the FTP deploy in
+# .github/workflows/deploy.yml as well.
+.mcp.json
+
+# Local editor / tooling state
+.claude/launch.json
+
+# OS noise
+Thumbs.db
+desktop.ini
+.DS_Store

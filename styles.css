@@ -1883,6 +1883,13 @@ section {
     text-underline-offset: 3px;
 }
 
+/* A .btn inside a prose card is a button, not body copy — it should keep its
+   own colour and stay free of the underline applied to inline links. */
+.legal-card a.btn {
+    text-decoration: none;
+    color: inherit;
+}
+
 .legal-meta {
     color: var(--text-light);
     font-size: 0.86rem;
@@ -2866,6 +2873,42 @@ section {
     align-items: center;
 }
 
+/* Solution pages lead with copy rather than a phone mockup, so the two-column
+   hero grid would otherwise leave half the row empty. Cap the single column at
+   a comfortable reading measure instead of letting it run the full container. */
+.app-hero-content.hero-solo {
+    grid-template-columns: minmax(0, 780px);
+}
+
+/* Visible breadcrumb trail. Mirrors the BreadcrumbList structured data so the
+   path is available to readers, not just to crawlers. */
+.breadcrumb-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb-nav a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.breadcrumb-nav a:hover,
+.breadcrumb-nav a:focus-visible {
+    border-bottom-color: currentColor;
+}
+
+.breadcrumb-nav span[aria-hidden="true"] {
+    color: var(--text-light);
+}
+
 .app-hero-badges {
     display: flex;
     gap: 10px;
@@ -2884,6 +2927,16 @@ section {
     font-weight: 600;
     font-size: 0.82rem;
     color: var(--text-secondary);
+}
+
+/* Badge ticks were previously sized by inline width/height attributes on each
+   SVG, so any badge authored without them rendered at the icon's intrinsic
+   size and blew the pill apart. Size them here instead. */
+.app-hero-badges span svg {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+    color: var(--primary-color);
 }
 
 .role-switcher {
@@ -3000,5 +3053,215 @@ section {
     .mockup-phone {
         width: 100%;
         max-width: 300px;
+    }
+}
+
+/* ==========================================================================
+   Download — Google Play
+   A visitor reading on a desktop cannot install an Android app on the machine
+   in front of them, so the QR panel carries the handoff to their phone. Below
+   the tablet breakpoint it is hidden: the visitor is already holding the
+   device that would install the app, cannot scan their own screen, and the
+   badge is the shortest path.
+   ========================================================================== */
+
+.download-panel {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+    padding: 54px 56px;
+    border-radius: var(--radius-xl);
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-lg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+
+/* Brand wash behind the QR side, to weight the eye toward the action. */
+.download-panel::after {
+    content: "";
+    position: absolute;
+    right: -130px;
+    bottom: -170px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77, 184, 154, 0.30), transparent 68%);
+    pointer-events: none;
+}
+
+.download-copy {
+    position: relative;
+    z-index: 1;
+}
+
+.download-copy h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    margin: 14px 0 14px;
+    color: var(--text-primary);
+}
+
+.download-copy > p {
+    color: var(--text-secondary);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-width: 52ch;
+}
+
+.download-points {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 30px;
+    display: grid;
+    gap: 12px;
+}
+
+.download-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.download-points li svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: var(--primary-color);
+}
+
+.download-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* The Google Play badge is Google's artwork and must not be recoloured,
+   cropped or re-lettered — only scaled. Hover lifts the link, not the mark. */
+.play-badge {
+    display: inline-flex;
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.play-badge img {
+    display: block;
+    height: 74px;
+    width: auto;
+}
+
+.play-badge:hover {
+    transform: translateY(-2px);
+}
+
+.play-badge:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+.download-meta {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.download-qr {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* The QR stays on white in both themes — scanners need the dark-on-light
+   contrast the code was generated with. */
+.qr-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(22, 32, 26, 0.10);
+    border-radius: var(--radius-lg);
+    padding: 18px 18px 14px;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+    max-width: 232px;
+}
+
+.qr-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.qr-card figcaption {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #16201A;
+}
+
+.qr-card figcaption span {
+    display: block;
+    font-weight: 500;
+    font-size: 0.76rem;
+    color: #5B6560;
+    margin-top: 2px;
+}
+
+@media (max-width: 1024px) {
+    .download-panel {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 44px 36px;
+        text-align: center;
+    }
+
+    .download-copy > p {
+        margin-inline: auto;
+    }
+
+    .download-points {
+        display: inline-grid;
+        text-align: left;
+    }
+
+    .download-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-panel {
+        padding: 36px 24px;
+    }
+
+    /* Nothing to scan when you are already on the phone that would install it. */
+    .download-qr {
+        display: none;
+    }
+
+    .play-badge img {
+        height: 64px;
+    }
+}
+
+/* In a hero row the badge sits beside ~48px buttons, so it scales down to keep
+   the row visually level. The download section keeps the larger badge. */
+.hero-buttons .play-badge img,
+.app-hero-badges + .hero-buttons .play-badge img {
+    height: 58px;
+}
+
+@media (max-width: 768px) {
+    .hero-buttons .play-badge img {
+        height: 54px;
     }
 }
