@@ -1,0 +1,8 @@
+# Cloudflare Pages redirects.
+# Pages already sends /page.html -> /page (308) on its own, so only genuinely
+# legacy paths need listing here.
+
+/owner-app.html    /dairy-owner-app    301
+/owner-app         /dairy-owner-app    301
+/rider-app.html    /delivery-app       301
+/rider-app         /delivery-app       301

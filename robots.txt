@@ -4,7 +4,7 @@
 
 User-agent: *
 Allow: /
-Disallow: /404.html
+Disallow: /404
 
 # Crawlers must be able to fetch CSS, JS and images, or Google renders the page
 # without its layout and judges it on that. Stated explicitly so a future

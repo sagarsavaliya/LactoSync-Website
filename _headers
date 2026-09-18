@@ -1,0 +1,27 @@
+# Cloudflare Pages response headers.
+# This replaces the old .htaccess, which never ran: lactosync.com is served by
+# Cloudflare Pages, not Apache, so the file was inert and — being a plain file
+# in the deploy — was itself readable at /.htaccess.
+#
+# Pages already handles HTTPS, HSTS at the zone level, Brotli compression and
+# the /page.html -> /page redirect, so only what it does NOT do belongs here.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+
+# Fingerprinted by the ?v= query string in the markup, so a year is safe.
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/script.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML must revalidate so content edits appear on the next visit.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
