@@ -932,7 +932,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Error submitting form:', error);
 
                 // Show error message
-                alert('Sorry, there was an error submitting your request. Please try again or contact us directly at info@aksharatech.com');
+                alert('Sorry, there was an error submitting your request. Please try again or contact us directly at contact@lactosync.com');
 
                 // Re-enable button
                 submitBtn.classList.remove('btn-loading');
@@ -946,7 +946,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function sendEmailNotification(formData) {
         // Prepare email content
         const emailContent = {
-            to: 'sales@lactosync.com',
+            to: 'contact@lactosync.com',
             subject: 'New LactoSync Demo Request',
             name: formData.fullName,
             phone: formData.phone,
@@ -976,7 +976,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formSubmitData.append('Additional Notes', emailContent.message);
         formSubmitData.append('Submitted On', emailContent.timestamp);
 
-        return fetch('https://formsubmit.co/sales@lactosync.com', {
+        return fetch('https://formsubmit.co/contact@lactosync.com', {
             method: 'POST',
             body: formSubmitData
         });
