@@ -3523,3 +3523,57 @@ a.video-card-live {
 @media (max-width: 480px) {
     .watch-chapters { grid-template-columns: 1fr; }
 }
+
+
+/* ==========================================================================
+   Real app screenshots (phone frame around a captured screen)
+   ========================================================================== */
+
+.phone-screen-app {
+    aspect-ratio: 600 / 1306;
+    background: #F4F5F0;
+}
+
+.app-gallery .phone-mockup-app,
+.app-preview-card .phone-mockup-app {
+    width: 250px;
+    padding: 10px;
+    border-radius: 34px;
+}
+
+.app-gallery .phone-mockup-app .phone-screen,
+.app-preview-card .phone-mockup-app .phone-screen {
+    border-radius: 25px;
+}
+
+.app-preview-card .phone-mockup-app {
+    margin-bottom: 6px;
+}
+
+@media (max-width: 480px) {
+    .app-gallery .phone-mockup-app { width: 230px; }
+}
+
+.app-gallery-six {
+    max-width: 900px;
+    margin: 0 auto;
+    column-gap: 40px;
+    row-gap: 34px;
+}
+
+/* On the home page the real screenshot sits beside two illustrated phones,
+   so it borrows their dark bezel and size to read as one set. */
+.app-preview-card .phone-mockup-app {
+    width: 212px;
+    padding: 0;
+    border: 6px solid #11160F;
+    border-radius: 34px;
+    background: #11160F;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: var(--glass-shadow-lg);
+}
+
+.app-preview-card .phone-mockup-app .phone-screen {
+    border-radius: 28px;
+}
