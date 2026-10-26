@@ -6,3 +6,7 @@
 /owner-app         /dairy-owner-app    301
 /rider-app.html    /delivery-app       301
 /rider-app         /delivery-app       301
+
+# Short links for the demo video (for YouTube descriptions, WhatsApp and print)
+/demo              /dairy-management-app-demo    301
+/video             /dairy-management-app-demo    301

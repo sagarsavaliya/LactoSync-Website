@@ -3265,3 +3265,261 @@ section {
         height: 54px;
     }
 }
+
+/* ==========================================================================
+   Demo video: live card on the home page + /dairy-management-app-demo watch page
+   ========================================================================== */
+
+a.video-card-live {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.video-thumb-image {
+    background: #11160F;
+}
+
+.video-thumb-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-thumb-image .video-play-btn {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+}
+
+.section-header p a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.video-badge-live {
+    z-index: 1;
+    background: var(--primary-dark);
+}
+
+.watch-hero {
+    padding: 130px 0 40px;
+}
+
+.watch-breadcrumb {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+}
+
+.watch-breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.watch-header {
+    max-width: 860px;
+}
+
+.watch-header .hero-description {
+    max-width: 760px;
+}
+
+.watch-player {
+    margin-top: 34px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #11160F;
+    box-shadow: var(--glass-shadow-lg);
+    aspect-ratio: 16 / 9;
+}
+
+.watch-player video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #11160F;
+}
+
+.watch-chapters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.watch-chapters a {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.watch-chapters a b {
+    color: var(--primary-color);
+    font-variant-numeric: tabular-nums;
+}
+
+.watch-chapters a:hover,
+.watch-chapters a:focus-visible {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.watch-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.watch-cta .play-badge img {
+    height: 60px;
+}
+
+.watch-note {
+    margin-top: 16px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.watch-note a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.watch-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.watch-step {
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: 26px 24px;
+}
+
+.watch-step-time {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--primary-color);
+    background: rgba(46, 110, 69, 0.10);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: 12px;
+}
+
+.watch-step h3 {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+}
+
+.watch-step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.watch-transcript-section {
+    padding: 10px 0 40px;
+}
+
+.watch-transcript,
+.watch-faq-list details {
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+}
+
+.watch-transcript summary,
+.watch-faq-list summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.watch-transcript p {
+    margin-top: 10px;
+    color: var(--text-secondary);
+}
+
+.watch-transcript p b {
+    color: var(--primary-color);
+    margin-right: 6px;
+    font-variant-numeric: tabular-nums;
+}
+
+.watch-faq {
+    padding: 60px 0;
+}
+
+.watch-faq-list {
+    display: grid;
+    gap: 12px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.watch-faq-list p {
+    margin-top: 10px;
+    color: var(--text-secondary);
+}
+
+.watch-faq-list a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.owner-video-section {
+    padding: 40px 0 10px;
+}
+
+.owner-video-wrap {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.owner-video-link {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.owner-video-link a {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .watch-chapters { grid-template-columns: repeat(2, 1fr); }
+    .watch-steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .watch-hero { padding: 110px 0 30px; }
+    .watch-steps { grid-template-columns: 1fr; }
+    .watch-cta .btn { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .watch-chapters { grid-template-columns: 1fr; }
+}

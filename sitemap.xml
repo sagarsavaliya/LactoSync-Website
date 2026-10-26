@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
     <!-- Home -->
     <url>
         <loc>https://lactosync.com/</loc>
-        <lastmod>2026-09-09</lastmod>
+        <lastmod>2026-10-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- Demo video watch page -->
+    <url>
+        <loc>https://lactosync.com/dairy-management-app-demo</loc>
+        <lastmod>2026-10-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <video:video>
+            <video:thumbnail_loc>https://lactosync.com/assets/video/lactosync-dairy-management-app-demo.jpg</video:thumbnail_loc>
+            <video:title>Dairy Management App Demo: Milk Billing, Delivery Routes &amp; Payments | LactoSync</video:title>
+            <video:description>A one-minute tour of the LactoSync owner app for Indian milk dairies: dashboard, customer delivery calendars and dues, daily orders and delivery routes, automatic monthly milk bills, payments with instant receipts, and one-tap overdue reminders.</video:description>
+            <video:content_loc>https://lactosync.com/assets/video/lactosync-dairy-management-app-demo.mp4</video:content_loc>
+            <video:duration>59</video:duration>
+            <video:publication_date>2026-10-25T16:00:00+05:30</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:requires_subscription>no</video:requires_subscription>
+            <video:uploader info="https://lactosync.com/">LactoSync</video:uploader>
+            <video:live>no</video:live>
+        </video:video>
     </url>
 
     <!-- Solution pages -->
@@ -32,7 +53,7 @@
     <!-- Role-based app pages -->
     <url>
         <loc>https://lactosync.com/dairy-owner-app</loc>
-        <lastmod>2026-09-09</lastmod>
+        <lastmod>2026-10-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
